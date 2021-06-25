@@ -43,11 +43,8 @@ plt.xlabel("Predicted")
 plt.show()
 
 
-# Evaluating the errors
-print("MAE: {}".format(metrics.mean_absolute_error(y_test, predictions)))
-print("MSE: {}".format(metrics.mean_squared_error(y_test, predictions)))
-print("RMSE: {}".format(np.sqrt(metrics.mean_squared_error(y_test, predictions))))
 
+#Sample Input
 inp = np.array(
     [
         [74],
@@ -82,14 +79,9 @@ plt.title("Precipitation level")
 plt.xlabel("Days")
 plt.ylabel("Precipitation in inches")
 
-# Ploting a graph of precipitation levels vs n# of days
 plt.show()
 
-# import seaborn as sns
-
-# sns.set(color_codes=True)
-# sns.lmplot(x=days, y="TempAvgF", data=data)
-
+#Filtering the data in variable X
 x_f = X.filter(
     [
         "TempAvgF",
@@ -115,6 +107,10 @@ for i in range(x_f.columns.size):
 # plot a graph with a few features vs precipitation to observe the trends
 plt.show()
 
+ # Evaluating the errors
+print("MAE: {}".format(metrics.mean_absolute_error(y_test, predictions)))
+print("MSE: {}".format(metrics.mean_squared_error(y_test, predictions)))
+print("RMSE: {}".format(np.sqrt(metrics.mean_squared_error(y_test, predictions))))
 
 #Recreating the data frame with their resepctive coeffients
-pd.DataFrame(clf.coef_ , X.columns, columns=['Coeffecient'])
+pd.DataFrame(clf.coef_ , x_f.columns, columns=['Coeffecient'])
