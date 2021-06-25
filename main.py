@@ -38,8 +38,8 @@ predictions = clf.predict(X_test)
 
 # Scatter plot
 plt.scatter( predictions,y_test, color="blue")
-plt.ylabel("Predicted")
-plt.xlabel("Days")
+plt.ylabel("PrecipitationSumInches")
+plt.xlabel("Predicted")
 plt.show()
 
 
